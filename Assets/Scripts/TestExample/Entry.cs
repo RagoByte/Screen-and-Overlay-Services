@@ -7,18 +7,17 @@ namespace TestExample
 {
     public class Entry : MonoBehaviour
     {
-        [SerializeField] private Config config;
+        [SerializeField] private ScreenAndOverlayConfig screenAndOverlayConfig;
 
         private void Awake()
         {
-            SV.Register(config);
+            SV.Register(screenAndOverlayConfig);
 
-
-            ScreenService screenService = Instantiate(config.ScreenService);
+            ScreenService screenService = Instantiate(screenAndOverlayConfig.ScreenService);
             DontDestroyOnLoad(screenService.gameObject);
             SV.Register(screenService);
 
-            OverlayService overlayService = Instantiate(config.OverlayService);
+            OverlayService overlayService = Instantiate(screenAndOverlayConfig.OverlayService);
             DontDestroyOnLoad(overlayService.gameObject);
             SV.Register(overlayService);
 

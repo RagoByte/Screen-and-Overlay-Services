@@ -16,11 +16,11 @@ namespace ScreenAndOverlaySystem.Service_Overlay
 
         private ScreenService _screenService;
 
-        private Config _config;
+        private ScreenAndOverlayConfig screenAndOverlayConfig;
 
         private void Awake()
         {
-            _config = SV.Get<Config>();
+            screenAndOverlayConfig = SV.Get<ScreenAndOverlayConfig>();
             _screenService = SV.Get<ScreenService>();
             _loadingOverlay = CreateOverlay<LoadingOverlay>(transform);
             Subscribe();
@@ -61,7 +61,7 @@ namespace ScreenAndOverlaySystem.Service_Overlay
         private T CreateOverlay<T>(Transform parent) where T : BaseOverlay
         {
             T overlayInstance = null;
-            foreach (var overlay in _config.OverlaysPrefabs)
+            foreach (var overlay in screenAndOverlayConfig.OverlaysPrefabs)
             {
                 if (overlay is T overlayReference)
                 {

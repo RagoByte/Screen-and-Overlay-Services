@@ -13,7 +13,7 @@ namespace ScreenAndOverlaySystem.Service_Screen
         public Action OnEndLoadScreen;
         private Screen _currentScreen;
 
-        private Config _config;
+        private ScreenAndOverlayConfig screenAndOverlayConfig;
 
         public ScreenIdentifier CurrentScreenID
         {
@@ -26,7 +26,7 @@ namespace ScreenAndOverlaySystem.Service_Screen
 
         private void Awake()
         {
-            _config = SV.Get<Config>();
+            screenAndOverlayConfig = SV.Get<ScreenAndOverlayConfig>();
         }
 
         public async UniTask OpenPreviousScreen()
@@ -56,13 +56,12 @@ namespace ScreenAndOverlaySystem.Service_Screen
 
             _currentScreen = CreateScreen(screenID, transform);
             await ((IOpenable)_currentScreen).Open();
-
             OnEndLoadScreen?.Invoke();
         }
 
         private Screen CreateScreen(ScreenIdentifier screenID, Transform parent)
         {
-            foreach (var scr in _config.ScreensPrefabs)
+            foreach (var scr in screenAndOverlayConfig.ScreensPrefabs)
             {
                 if (scr.ID == screenID)
                 {

@@ -6,8 +6,8 @@ using Screen = ScreenAndOverlaySystem.Service_Screen.Screen;
 
 namespace TestExample
 {
-    [CreateAssetMenu(fileName = "Config", menuName = "Config")]
-    public class Config : ScriptableObject
+    [CreateAssetMenu(fileName = "ScreenAndOverlayConfig", menuName = "ScreenAndOverlayConfig")]
+    public class ScreenAndOverlayConfig : ScriptableObject
     {
         [field: SerializeField, Header(" Services ")] public ScreenService ScreenService { get; private set; }
         [field: SerializeField] public OverlayService OverlayService { get; private set; }

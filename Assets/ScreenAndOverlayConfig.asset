@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14e42d8cca624e4695db940c2c1e18cb, type: 3}
-  m_Name: Config
+  m_Name: ScreenAndOverlayConfig
   m_EditorClassIdentifier: 
   <ScreenService>k__BackingField: {fileID: 3228570430915231161, guid: a5df585b65cb6a94a988a8e19aeb0a5a, type: 3}
   <OverlayService>k__BackingField: {fileID: 6039646716445453439, guid: 9fb650b85899ec448848192fa37e35c0, type: 3}

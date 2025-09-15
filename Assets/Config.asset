@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e42d8cca624e4695db940c2c1e18cb, type: 3}
+  m_Name: Config
+  m_EditorClassIdentifier: 
+  <ScreenService>k__BackingField: {fileID: 3228570430915231161, guid: a5df585b65cb6a94a988a8e19aeb0a5a, type: 3}
+  <OverlayService>k__BackingField: {fileID: 6039646716445453439, guid: 9fb650b85899ec448848192fa37e35c0, type: 3}
+  <ScreensPrefabs>k__BackingField:
+  - {fileID: 65159555740415013, guid: f02e8be1560d8af4c8d484eafcd011ce, type: 3}
+  - {fileID: 3772918050722201818, guid: adaa6e004c7f8584892e62efa2795df1, type: 3}
+  - {fileID: -6782390328550070321, guid: 6873b9cf93e91a94fad2bbe3c7b6a025, type: 3}
+  <OverlaysPrefabs>k__BackingField:
+  - {fileID: 4143451311204166369, guid: dea9a5e3ebc6e9e4aa734b7dcac820c6, type: 3}
+  - {fileID: 1714071673406826257, guid: b7c81841c455b60439c669fb1cc61960, type: 3}
+  - {fileID: -5839944019390026866, guid: 041fcd751a1681346845d1689aa4ba8a, type: 3}

@@ -37,9 +37,14 @@ This project uses a **Service Locator (`SV`)** to register and access services.
 
 ### 🖥️ **Screens and Views**
 
+<img width="520" height="653" alt="{105FF612-53E9-4C71-8C65-51F54C77E0A7}" src="https://github.com/user-attachments/assets/ac82cea0-45d0-4853-9cc7-7beb6e2367a3" />
+
+
 1. Create prefabs for your new screen and its view.  
 2. Add the screen prefab to the `ScreensPrefabs` list in `ScreenAndOverlayConfig`.  
 3. Assign the main view prefab to the screen’s `defaultView` field (additional views can be handled with your own logic).  
+![Unity_qCbJSgOqHo](https://github.com/user-attachments/assets/b0cfcbcc-decc-4e75-a5ff-39d20e1fe4ba)
+
 4. To open a screen, use:
 ```csharp
 SV.Get<ScreenService>().OpenScreen(ScreenIdentifier.YourScreenID);

@@ -59,7 +59,7 @@ Also you can use an **OpenPreviousScreenButton** to open previous screen.
 
 
 ### 📦 **Overlays**
-
+You can create your own overlays, but do not delele **LoadingOverlay** class and prefab. This overlay is essential for displaying loading between screen transitions. The only things you can change there are the view and the duration of the animation of this loading overlay
 1. Create an overlay prefab and add it to the `OverlaysPrefabs` list in `ScreenAndOverlayConfig`.
 2. To open an overlay, use:
 

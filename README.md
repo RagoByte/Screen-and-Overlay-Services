@@ -45,6 +45,13 @@ This project uses a **Service Locator (`SV`)** to register and access services.
 SV.Get<ScreenService>().OpenScreen(ScreenIdentifier.YourScreenID);
 ```
 Or use an **OpenScreenButton** and select the desired `ScreenIdentifier` in the inspector.
+<img width="1010" height="237" alt="{171D8A23-1F2B-4BBE-9AB0-04FF25F9FED8}" src="https://github.com/user-attachments/assets/3d87232a-97a7-46d8-891d-6b9788482cb4" />
+
+
+Also you can use an **OpenPreviousScreenButton** to open previous screen.
+<img width="1049" height="302" alt="{5582D812-39E4-4B7E-BFCA-5BE71A123B7C}" src="https://github.com/user-attachments/assets/a03df106-f24d-4b1f-a0df-825f7bfc97a3" />
+
+
 
 ### 📦 **Overlays**
 

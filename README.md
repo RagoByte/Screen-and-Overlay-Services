@@ -49,8 +49,8 @@ The system allows you to:
 
 This project uses a **Service Locator (`SV`)** to register and access services.  
 `ScreenService` and `OverlayService` are created from prefabs stored in `ScreenAndOverlayConfig`, registered in the service locator, and can then be accessed anywhere in the project via `SV.Get<T>()`.
-<img width="1248" height="846" alt="image" src="https://github.com/user-attachments/assets/14450e17-5419-4b52-ac57-36d51b6e682c" />
-<img width="1040" height="447" alt="image" src="https://github.com/user-attachments/assets/fe819afc-9479-4906-a5c8-e900ce6f12ce" />
+<img width="1342" height="849" alt="{C28A60EF-87F1-4ECE-8105-3F1886D63969}" src="https://github.com/user-attachments/assets/c942f821-df53-4dae-a1de-f473cca19a9e" />
+
 
 
 💡 **Note:** Instead of a Service Locator, you can use any other dependency management method, such as **Dependency Injection**, if it fits your project better.

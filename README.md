@@ -96,3 +96,6 @@ SV.Get<OverlayService>().OpenOverlay<YourOverlay>();
 **Pass true as an argument to open the overlay immediately, bypassing the queue. By default (false), the overlay will wait if another overlay is still open.**
 
 ---
+
+### Test example GIFs
+![Unity_InEcLHrQMh](https://github.com/user-attachments/assets/9451bd25-20c7-48ea-bb4e-a7d7c9bdb600)

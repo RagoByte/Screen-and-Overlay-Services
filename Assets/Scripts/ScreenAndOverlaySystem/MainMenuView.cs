@@ -1,7 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using ScreenAndOverlaySystem.Service_Screen;
 
-namespace TestExample.Views
+namespace ScreenAndOverlaySystem
 {
     public class MainMenuView : BaseView
     {

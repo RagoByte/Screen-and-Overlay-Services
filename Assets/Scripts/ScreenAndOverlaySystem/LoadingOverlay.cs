@@ -1,8 +1,9 @@
 ﻿using Cysharp.Threading.Tasks;
+using ScreenAndOverlaySystem.Service_Overlay;
 using TMPro;
 using UnityEngine;
 
-namespace ScreenAndOverlaySystem.Service_Overlay
+namespace ScreenAndOverlaySystem
 {
     public class LoadingOverlay : BaseOverlay, IOpenable
     {

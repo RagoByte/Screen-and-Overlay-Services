@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using ScreenAndOverlaySystem.Service_Screen;
 
-namespace TestExample.Screens
+namespace ScreenAndOverlaySystem
 {
     public class MainMenuScreen : Screen
     {

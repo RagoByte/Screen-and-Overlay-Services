@@ -1,6 +1,5 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using ScreenAndOverlaySystem;
 using ScreenAndOverlaySystem.Service_Overlay;
 using ScreenAndOverlaySystem.UI;
 using TMPro;

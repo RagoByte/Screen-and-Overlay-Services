@@ -7,8 +7,7 @@ namespace ScreenAndOverlaySystem.UI
     public class Clickable : MonoBehaviour, IPointerClickHandler
     {
         public Action ActionOnClicked;
-
-
+        
         public void OnPointerClick(PointerEventData eventData)
         {
             ActionOnClicked?.Invoke();

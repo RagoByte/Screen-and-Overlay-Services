@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef0f96ae69e48c9ae658b8893506488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenAndOverlayConfig: {fileID: 11400000, guid: 5de803bcbe7cbbe4db49069a08116275, type: 2}
+  config: {fileID: 11400000, guid: 5de803bcbe7cbbe4db49069a08116275, type: 2}
 --- !u!114 &1046624815
 MonoBehaviour:
   m_ObjectHideFlags: 0

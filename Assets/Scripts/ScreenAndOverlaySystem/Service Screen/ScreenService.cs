@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using TestExample;
 using UnityEngine;
 
 namespace ScreenAndOverlaySystem.Service_Screen
@@ -13,7 +12,7 @@ namespace ScreenAndOverlaySystem.Service_Screen
         public Action OnEndLoadScreen;
         private Screen _currentScreen;
 
-        private ScreenAndOverlayConfig screenAndOverlayConfig;
+        [SerializeField] private List<Screen> screensPrefabs = new List<Screen>();
 
         public ScreenIdentifier CurrentScreenID
         {
@@ -22,11 +21,6 @@ namespace ScreenAndOverlaySystem.Service_Screen
                 if (_currentScreen == null) return ScreenIdentifier.Main;
                 return _currentScreen.ID;
             }
-        }
-
-        private void Awake()
-        {
-            screenAndOverlayConfig = SV.Get<ScreenAndOverlayConfig>();
         }
 
         public async UniTask OpenPreviousScreen()
@@ -61,7 +55,7 @@ namespace ScreenAndOverlaySystem.Service_Screen
 
         private Screen CreateScreen(ScreenIdentifier screenID, Transform parent)
         {
-            foreach (var scr in screenAndOverlayConfig.ScreensPrefabs)
+            foreach (var scr in screensPrefabs)
             {
                 if (scr.ID == screenID)
                 {

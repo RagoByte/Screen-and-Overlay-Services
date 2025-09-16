@@ -114,3 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1664bdeb85657f948823655a47189693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screensPrefabs:
+  - {fileID: 65159555740415013, guid: f02e8be1560d8af4c8d484eafcd011ce, type: 3}
+  - {fileID: 3772918050722201818, guid: adaa6e004c7f8584892e62efa2795df1, type: 3}
+  - {fileID: -6782390328550070321, guid: 6873b9cf93e91a94fad2bbe3c7b6a025, type: 3}

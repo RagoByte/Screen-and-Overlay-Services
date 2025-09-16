@@ -38,20 +38,12 @@ The system allows you to:
 💾 **Preserve overlay states** when switching screens, automatically hiding and restoring them  
 
 ---
-# ⚙️ **ScreenAndOverlayConfig**
-**ScreenAndOverlayConfig stores prefabs for ScreenService, OverlayService, screens and overlays**
-
-<img width="520" height="653" alt="{105FF612-53E9-4C71-8C65-51F54C77E0A7}" src="https://github.com/user-attachments/assets/ac82cea0-45d0-4853-9cc7-7beb6e2367a3" />
-
----
 
 # ⚡ **Initializing the Services**
 
 This project uses a **Service Locator (`SV`)** to register and access services.  
 `ScreenService` and `OverlayService` are created from prefabs stored in `ScreenAndOverlayConfig`, registered in the service locator, and can then be accessed anywhere in the project via `SV.Get<T>()`.
-<img width="1342" height="849" alt="{C28A60EF-87F1-4ECE-8105-3F1886D63969}" src="https://github.com/user-attachments/assets/c942f821-df53-4dae-a1de-f473cca19a9e" />
-
-
+<img width="930" height="638" alt="{E72FF53C-8D9D-4B1A-B2FE-3A95791ADCE6}" src="https://github.com/user-attachments/assets/4a726d40-caa3-43fd-9105-225eff3a98e9" />
 
 💡 **Note:** Instead of a Service Locator, you can use any other dependency management method, such as **Dependency Injection**, if it fits your project better.
 

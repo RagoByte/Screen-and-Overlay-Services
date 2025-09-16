@@ -203,6 +203,12 @@ SV.Get<OverlayService>().OpenOverlay<YourOverlay>(); // CurrentTimePopUpOverlay 
 **Pass true as an argument to open the overlay immediately, bypassing the queue. By default (false), the overlay will wait if another overlay is still open.**
 
 ---
+# 💡 Tips
+### Add these components to your UI gameObjects
+### 🖱️ Clickable — simple replacement for Unity’s Button. Add it to a UI object and subscribe to ActionOnClicked.
+### ✨ AnimatedClickable — Smooth press/release animations. Add this component to your custom button
+
+---
 
 ### 🎬 Test example GIF/Video
 ![Unity_InEcLHrQMh](https://github.com/user-attachments/assets/9451bd25-20c7-48ea-bb4e-a7d7c9bdb600)

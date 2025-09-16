@@ -90,7 +90,7 @@ SV.Get<ScreenService>().OpenScreen(ScreenIdentifier.YourScreenID); // settings I
 ### 📦 **Overlays**
 You can create your own overlays, `but do not delete` **LoadingOverlay** `class and prefab`. This overlay is essential for displaying loading between screen transitions. The only things you can change there are the view and the duration of the animation of this loading overlay
 ### 1. Create a subclass of `BaseOverlay`. Then, create a prefab of this class and add it to the `overlaysPrefabs` list in the `OverlayService` prefab.
-<img width="822" height="913" alt="{59BB3B20-ECEB-4878-9E5D-621AAA063675}" src="https://github.com/user-attachments/assets/eedeeef0-df1b-4833-8d30-41180e7b6a4c" />
+<img width="729" height="1044" alt="{D6A12986-0979-4969-A858-4681CE670287}" src="https://github.com/user-attachments/assets/15d251cf-7b12-4ebc-92cf-458e13f6b534" />
 
 <img width="953" height="482" alt="{8907C134-9E2C-4E41-B0B6-59E9C020072E}" src="https://github.com/user-attachments/assets/1a3694f2-c47b-420b-bdfa-3bcc2cee2b0e" />
 

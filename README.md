@@ -103,5 +103,12 @@ SV.Get<OverlayService>().OpenOverlay<YourOverlay>(); // CurrentTimePopUpOverlay 
 
 ---
 
-### 🎬 Test example GIFs
+### 🎬 Test example GIF/Video
 ![Unity_InEcLHrQMh](https://github.com/user-attachments/assets/9451bd25-20c7-48ea-bb4e-a7d7c9bdb600)
+
+
+https://github.com/user-attachments/assets/ddb84b72-7621-4ec9-b746-07ced43bbbc2
+
+
+
+

@@ -2,7 +2,7 @@
 
 
 
-# 🚀 **Why It’s Useful**
+# 📝 **Introduction**
 In Unity, the default way of building UI is to place elements on a Canvas and show or hide them with `SetActive()`.  
 This works for small projects, but as complexity grows it becomes messy and hard to maintain:
 
@@ -38,6 +38,9 @@ The system allows you to:
 💾 **Preserve overlay states** when switching screens, automatically hiding and restoring them  
 
 ---
+---
+
+
 
 # ⚡ **Initializing the Services**
 
@@ -52,7 +55,6 @@ This project uses a **Service Locator (`SV`)** to register and access services.
 # 🖱️ **Creating Screens and Overlays**
 
 ### 🖥️ **Screens and Views**
----
 
 ### 1. Add a new your own value to the enum **ScreenIdentifier**. (In my example **Settings**):
 <img width="430" height="155" alt="{051DBF5C-FB01-407A-AE30-74CDEA1713AA}" src="https://github.com/user-attachments/assets/685c72c5-94ae-4c00-995e-9a19fe0179d2" />
@@ -101,5 +103,5 @@ SV.Get<OverlayService>().OpenOverlay<YourOverlay>(); // CurrentTimePopUpOverlay 
 
 ---
 
-### Test example GIFs
+### 🎬 Test example GIFs
 ![Unity_InEcLHrQMh](https://github.com/user-attachments/assets/9451bd25-20c7-48ea-bb4e-a7d7c9bdb600)

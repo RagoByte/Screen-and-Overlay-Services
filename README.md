@@ -20,14 +20,14 @@ This system solves those issues by:
 ✅ **Centralizing UI logic** inside dedicated services, making the project easier to maintain and scale.  
 ### This system simplifies working with UI in Unity and provides two core services:
 
-✨ **ScreenService** — manages creating and switching screens.  
-🖼️ **OverlayService** — manages creating and showing overlays (pop-ups, notifications) on top of screens.  
+🪟 **ScreenService** — manages creating and switching screens.  
+💬 **OverlayService** — manages creating and showing overlays (pop-ups, notifications) on top of screens.  
 
 ### Key Classes
 
-- 🖥️ **Screen** — main container for a screen’s interface, managed by `ScreenService`.  
+- 🖥️ **Screen** — main container for views within this screen. It manages which view is active and handles switching between them.
 - 🖼️ **BaseView** — a visual part of a screen. A single Screen can have multiple different views, but only one can be active at a time. If you need to switch between views, implement this logic in your Screen subclass: hide or destroy the current view, create the new one, and assign it to `_currentView`.  
-- 📦 **BaseOverlay** — pop-ups or notifications, managed by `OverlayService`, keep their state when switching screens and can open independently.
+- 📦 **BaseOverlay** — pop-ups or notifications managed by OverlayService. They preserve their state when switching screens and can open independently of the current screen.
 
 The system allows you to:
 
@@ -60,7 +60,7 @@ This project uses a **Service Locator (`SV`)** to register and access services.
 <img width="430" height="155" alt="{051DBF5C-FB01-407A-AE30-74CDEA1713AA}" src="https://github.com/user-attachments/assets/685c72c5-94ae-4c00-995e-9a19fe0179d2" />
 
 ---
-### 2. Create a subclass of `Screen` and a subclass of `BaseView`. Then, create prefabs for your new screen and its view.
+### 2. Create a subclass of `Screen` and a subclass of `BaseView`. Then create prefabs for your new screen and its view.
 <img width="995" height="145" alt="{A1F1D3DB-6198-42F4-82CB-ADE78953E08E}" src="https://github.com/user-attachments/assets/2119dab7-20a7-4c34-8e5e-6446655b41b9" />
 <img width="523" height="41" alt="{8D920F17-B1D2-4AEC-AF2E-C2B76EF1D026}" src="https://github.com/user-attachments/assets/ef9aedd0-031d-4a03-9eaa-ebcc8b7c7b56" />
 
@@ -72,12 +72,12 @@ This project uses a **Service Locator (`SV`)** to register and access services.
 
 ---
 ### 4. Add the screen prefab to the `screensPrefabs` list in **`ScreenService` prefab**:
-<img width="990" height="283" alt="{B933F547-3679-4344-893E-3AFF6A65D824}" src="https://github.com/user-attachments/assets/21a982d7-b411-4e63-ad07-ba35973a099a" />
+<img width="957" height="253" alt="{9B54BB36-B7EC-42FD-A4AF-4176BF7CBA50}" src="https://github.com/user-attachments/assets/61eda9f6-f5f1-4709-8575-16e7513450de" />
 
 ---  
 ### 5. To open a screen, use:
 ```csharp
-SV.Get<ScreenService>().OpenScreen(ScreenIdentifier.YourScreenID);
+SV.Get<ScreenService>().OpenScreen(ScreenIdentifier.YourScreenID); // settings Id in my case
 ```
 ### Or use an `OpenScreenButton` and select the desired `ScreenIdentifier` in the inspector.
 <img width="977" height="253" alt="{086ED0C3-1CDE-48F0-B81B-C3A74CCE787A}" src="https://github.com/user-attachments/assets/3b3de08c-680f-4083-866f-fde9c6461614" />

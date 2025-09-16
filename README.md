@@ -46,8 +46,31 @@ The system allows you to:
 
 This project uses a **Service Locator (`SV`)** to register and access services.  
 `ScreenService` and `OverlayService` are created from prefabs stored in my Config class, then registered in the service locator, and can then be accessed anywhere in the project via `SV.Get<T>()`.
-<img width="930" height="638" alt="{E72FF53C-8D9D-4B1A-B2FE-3A95791ADCE6}" src="https://github.com/user-attachments/assets/4a726d40-caa3-43fd-9105-225eff3a98e9" />
+```csharp
+namespace TestExample
+{
+    public class Entry : MonoBehaviour
+    {
+        [SerializeField] private Config config;
 
+        private void Awake()
+        {
+            ScreenService screenService = Instantiate(config.ScreenService);
+            DontDestroyOnLoad(screenService.gameObject);
+            SV.Register(screenService);
+
+            OverlayService overlayService = Instantiate(config.OverlayService);
+            DontDestroyOnLoad(overlayService.gameObject);
+            SV.Register(overlayService);
+
+            DontDestroyOnLoad(Camera.main);
+            DontDestroyOnLoad(FindAnyObjectByType<EventSystem>());
+
+            SV.Get<ScreenService>().OpenScreen(ScreenIdentifier.Main);
+        }
+    }
+}
+```
 💡 **Note:** Instead of a Service Locator, you can use any other dependency management method, such as **Dependency Injection**, if it fits your project better.
 
 ---
@@ -57,15 +80,62 @@ This project uses a **Service Locator (`SV`)** to register and access services.
 ### 🖥️ **Screens and Views**
 
 ### 1. Add a new your own value to the enum **ScreenIdentifier**. (In my example **Settings**):
-<img width="430" height="155" alt="{051DBF5C-FB01-407A-AE30-74CDEA1713AA}" src="https://github.com/user-attachments/assets/685c72c5-94ae-4c00-995e-9a19fe0179d2" />
-
+```csharp
+    public enum ScreenIdentifier
+    {
+        Main,
+        Settings,
+        Credits
+    }
+```
 ---
 ### 2. Create a subclass of `Screen` and a subclass of `BaseView`. Then create prefabs for your new screen and its view.
-<img width="995" height="145" alt="{A1F1D3DB-6198-42F4-82CB-ADE78953E08E}" src="https://github.com/user-attachments/assets/2119dab7-20a7-4c34-8e5e-6446655b41b9" />
-<img width="523" height="41" alt="{8D920F17-B1D2-4AEC-AF2E-C2B76EF1D026}" src="https://github.com/user-attachments/assets/ef9aedd0-031d-4a03-9eaa-ebcc8b7c7b56" />
+```csharp
+public class SettingsScreen : Screen
+    {
+        public override ScreenIdentifier ID { get; } = ScreenIdentifier.Settings;
 
+        protected override UniTask OnOpen()
+        {
+            return UniTask.CompletedTask;
+        }
+
+        protected override UniTask OnClose()
+        {
+            return UniTask.CompletedTask;
+        }
+    }
+```
 ### Implement your desired logic inside the **`OnOpen()`** and **`OnClose()`** methods of the new Screen and View.
+```csharp
+public class SettingsView : BaseView
+    {
+        [SerializeField] Clickable openNewsButton;
+        [SerializeField] Clickable openCurrentTimePopUpButton;
 
+        protected override UniTask OnOpen()
+        {
+            openNewsButton.ActionOnClicked += OpenNewsOverlay;
+            openCurrentTimePopUpButton.ActionOnClicked += OpenCurrentTimePopUp;
+            return UniTask.CompletedTask;
+        }
+
+        private void OpenCurrentTimePopUp()
+        {
+            SV.Get<OverlayService>().OpenOverlay<CurrentTimePopUpOverlay>(true);
+        }
+
+        private void OpenNewsOverlay()
+        {
+            SV.Get<OverlayService>().OpenOverlay<NewsPopUpOverlay>();
+        }
+
+        protected override UniTask OnClose()
+        {
+            return UniTask.CompletedTask;
+        }
+    }
+```
 ---
 ### 3. Assign the initial view prefab to the screen’s `defaultView` field (additional views can be handled with your own logic):
 ![Unity_ZHZMyUoejQ](https://github.com/user-attachments/assets/48a09559-92a2-4b2f-ab86-ddb00a781f1f)
@@ -90,8 +160,38 @@ SV.Get<ScreenService>().OpenScreen(ScreenIdentifier.YourScreenID); // settings I
 ### 📦 **Overlays**
 You can create your own overlays, `but do not delete` **LoadingOverlay** `class and prefab`. This overlay is essential for displaying loading between screen transitions. The only things you can change there are the view and the duration of the animation of this loading overlay
 ### 1. Create a subclass of `BaseOverlay`. Then, create a prefab of this class and add it to the `overlaysPrefabs` list in the `OverlayService` prefab.
-<img width="729" height="1044" alt="{D6A12986-0979-4969-A858-4681CE670287}" src="https://github.com/user-attachments/assets/15d251cf-7b12-4ebc-92cf-458e13f6b534" />
+```csharp
+namespace TestExample.Overlays
+{
+    public class CurrentTimePopUpOverlay : BaseOverlay
+    {
+        [SerializeField] private TextMeshProUGUI timeText;
+        [SerializeField] Clickable closeButton;
+        private int _lastSecond = -1;
 
+        protected override UniTask OnOpen()
+        {
+            closeButton.ActionOnClicked += () => Close();
+            return UniTask.CompletedTask;
+        }
+
+        private void Update()
+        {
+            var now = DateTime.Now;
+            if (now.Second != _lastSecond)
+            {
+                _lastSecond = now.Second;
+                timeText.text = now.ToString("HH:mm:ss");
+            }
+        }
+
+        protected override UniTask OnClose()
+        {
+            return UniTask.CompletedTask;
+        }
+    }
+}
+```
 <img width="953" height="482" alt="{8907C134-9E2C-4E41-B0B6-59E9C020072E}" src="https://github.com/user-attachments/assets/1a3694f2-c47b-420b-bdfa-3bcc2cee2b0e" />
 
 

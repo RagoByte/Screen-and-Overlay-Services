@@ -20,18 +20,18 @@ namespace ScreenAndOverlaySystem.Service_Screen
         protected abstract UniTask OnOpen();
         protected abstract UniTask OnClose();
 
-        async UniTask IOpenable.Open()
+        public async UniTask Open()
         {
             await OnOpen();
             _currentView = Instantiate(_defaultView, transform);
-            await ((IOpenable)_currentView).Open();
+            await _currentView.Open();
         }
 
-        async UniTask IOpenable.Close()
+        public async UniTask Close()
         {
             if (_currentView != null)
             {
-                await ((IOpenable)_currentView).Close();
+                await _currentView.Close();
             }
 
             await OnClose();

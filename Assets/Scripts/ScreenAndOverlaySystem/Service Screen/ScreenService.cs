@@ -42,14 +42,14 @@ namespace ScreenAndOverlaySystem.Service_Screen
         {
             OnStartLoadScreen?.Invoke();
 
-            if (_currentScreen) await ((IOpenable)_currentScreen).Close();
+            if (_currentScreen) await _currentScreen.Close();
             if (screenID == ScreenIdentifier.Main) _openedScreenIDs.Clear();
             if (_openedScreenIDs.Contains(screenID)) _openedScreenIDs.Remove(screenID);
 
             _openedScreenIDs.Add(screenID);
 
             _currentScreen = CreateScreen(screenID, transform);
-            await ((IOpenable)_currentScreen).Open();
+            await _currentScreen.Open();
             OnEndLoadScreen?.Invoke();
         }
 

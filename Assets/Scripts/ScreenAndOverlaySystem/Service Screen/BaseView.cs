@@ -16,12 +16,12 @@ namespace ScreenAndOverlaySystem.Service_Screen
         protected abstract UniTask OnOpen();
         protected abstract UniTask OnClose();
 
-        async UniTask IOpenable.Open()
+        public async UniTask Open()
         {
             await OnOpen();
         }
 
-        async UniTask IOpenable.Close()
+        public async UniTask Close()
         {
             await OnClose();
             Destroy(gameObject);

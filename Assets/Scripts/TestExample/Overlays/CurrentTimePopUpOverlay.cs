@@ -16,7 +16,7 @@ namespace TestExample.Overlays
 
         protected override UniTask OnOpen()
         {
-            closeButton.ActionOnClicked += () => ((IOpenable)this).Close();
+            closeButton.ActionOnClicked += () => Close();
             return UniTask.CompletedTask;
         }
 

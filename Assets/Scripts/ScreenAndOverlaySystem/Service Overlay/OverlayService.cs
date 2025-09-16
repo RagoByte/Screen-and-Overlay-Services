@@ -39,11 +39,10 @@ namespace ScreenAndOverlaySystem.Service_Overlay
             T overlay = CreateOverlay<T>(transform);
             overlay.OnClosed += OnOverlayClosed;
 
-            IOpenable openable = overlay;
 
             if (ignoreQueue)
             {
-                await openable.Open();
+                await overlay.Open();
                 _ignoreQueueOverlays.Add(overlay);
             }
             else
@@ -51,7 +50,7 @@ namespace ScreenAndOverlaySystem.Service_Overlay
                 _defaultOverlays.Add(overlay);
 
                 bool isFirstInQueue = _defaultOverlays.Count == 1 && _ignoreQueueOverlays.Count == 0;
-                if (isFirstInQueue) await openable.Open();
+                if (isFirstInQueue) await overlay.Open();
             }
 
             return overlay;
@@ -92,7 +91,7 @@ namespace ScreenAndOverlaySystem.Service_Overlay
         {
             if (_defaultOverlays.Count > 0 && _ignoreQueueOverlays.Count == 0)
             {
-                await ((IOpenable)_defaultOverlays[0]).Open();
+                await _defaultOverlays[0].Open();
             }
         }
 

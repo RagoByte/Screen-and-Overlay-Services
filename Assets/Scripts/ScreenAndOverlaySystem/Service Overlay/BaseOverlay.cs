@@ -21,8 +21,7 @@ namespace ScreenAndOverlaySystem.Service_Overlay
         protected abstract UniTask OnOpen();
         protected abstract UniTask OnClose();
 
-
-        async UniTask IOpenable.Open()
+        public async UniTask Open()
         {
             if (_wasOpened) return;
             _wasOpened = true;
@@ -31,7 +30,7 @@ namespace ScreenAndOverlaySystem.Service_Overlay
             await OnOpen();
         }
 
-        async UniTask IOpenable.Close()
+        public async UniTask Close()
         {
             await OnClose();
             Destroy(gameObject);

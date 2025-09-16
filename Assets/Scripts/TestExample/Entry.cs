@@ -23,8 +23,8 @@ namespace TestExample
 
             DontDestroyOnLoad(Camera.main);
             DontDestroyOnLoad(FindAnyObjectByType<EventSystem>());
-            new Game().Init();
-            Destroy(this.gameObject);
+
+            SV.Get<ScreenService>().OpenScreen(ScreenIdentifier.Main);
         }
     }
 }

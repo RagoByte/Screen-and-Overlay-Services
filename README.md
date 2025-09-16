@@ -6,10 +6,10 @@
 In Unity, the default way of building UI is to place elements on a Canvas and show or hide them with `SetActive()`.  
 This works for small projects, but as complexity grows it becomes messy and hard to maintain:
 
-- 🧩 **Hard to manage screens** — you must manually show and hide objects in the right order.  
-- ⏪ **No screen history** — you have to write your own logic to go back.  
-- 🔀 **Complex states are tricky** — e.g., one screen with multiple views (UI walking/driving).  
-- 📚 **Overlays can overlap** or behave inconsistently without extra management.  
+- 🆘 **Hard to manage screens** — you must manually show and hide objects in the right order.  
+- 🆘 **No screen history** — you have to write your own logic to go back.  
+- 🆘 **Complex states are tricky** — e.g., one screen with multiple views (UI walking/driving).  
+- 🆘 **Overlays can overlap** or behave inconsistently without extra management.  
 
 This system solves those issues by:
 

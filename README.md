@@ -205,7 +205,7 @@ SV.Get<OverlayService>().OpenOverlay<YourOverlay>(); // CurrentTimePopUpOverlay 
 ---
 # 💡 Tips
 ### Add these components to your UI gameObjects
-### 🖱️ Clickable — simple replacement for Unity’s Button. Add it to a UI object and subscribe to ActionOnClicked.
+### 🖱️ Clickable — simple replacement for Unity’s Button. Add it to a UI object and subscribe to `ActionOnClicked`.
 ### ✨ AnimatedClickable — Smooth press/release animations. Add this component to your custom button
 
 ---

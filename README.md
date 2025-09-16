@@ -38,8 +38,14 @@ The system allows you to:
 💾 **Preserve overlay states** when switching screens, automatically hiding and restoring them  
 
 ---
+# ⚙️ **ScreenAndOverlayConfig**
+**ScreenAndOverlayConfig stores prefabs for ScreenService, OverlayService, screens and overlays**
 
-# ⚙️ **Initializing the Services**
+<img width="520" height="653" alt="{105FF612-53E9-4C71-8C65-51F54C77E0A7}" src="https://github.com/user-attachments/assets/ac82cea0-45d0-4853-9cc7-7beb6e2367a3" />
+
+---
+
+# ⚡ **Initializing the Services**
 
 This project uses a **Service Locator (`SV`)** to register and access services.  
 `ScreenService` and `OverlayService` are created from prefabs stored in `ScreenAndOverlayConfig`, registered in the service locator, and can then be accessed anywhere in the project via `SV.Get<T>()`.
@@ -54,9 +60,6 @@ This project uses a **Service Locator (`SV`)** to register and access services.
 # 🖱️ **Creating Screens and Overlays**
 
 ### 🖥️ **Screens and Views**
-
-<img width="520" height="653" alt="{105FF612-53E9-4C71-8C65-51F54C77E0A7}" src="https://github.com/user-attachments/assets/ac82cea0-45d0-4853-9cc7-7beb6e2367a3" />
-
 
 1. Create prefabs for your new screen and its view.  
 2. Add the screen prefab to the `ScreensPrefabs` list in `ScreenAndOverlayConfig`.  
@@ -85,3 +88,5 @@ You can create your own overlays, but do not delele **LoadingOverlay** class and
 SV.Get<OverlayService>().OpenOverlay<YourOverlay>();
 ```
 **Pass true as an argument to open the overlay immediately, bypassing the queue. By default (false), the overlay will wait if another overlay is still open.**
+
+---

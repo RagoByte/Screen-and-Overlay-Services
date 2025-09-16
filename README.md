@@ -83,3 +83,5 @@ You can create your own overlays, but do not delele **LoadingOverlay** class and
 
 ```csharp
 SV.Get<OverlayService>().OpenOverlay<YourOverlay>();
+```
+**Pass true as an argument to open the overlay immediately, bypassing the queue. By default (false), the overlay will wait if another overlay is still open.**

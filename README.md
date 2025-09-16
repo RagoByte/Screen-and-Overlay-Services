@@ -61,24 +61,30 @@ This project uses a **Service Locator (`SV`)** to register and access services.
 
 ### 🖥️ **Screens and Views**
 
-1. Create prefabs for your new screen and its view.  
-2. Add the screen prefab to the `ScreensPrefabs` list in `ScreenAndOverlayConfig`.  
-3. Assign the main view prefab to the screen’s `defaultView` field (additional views can be handled with your own logic).  
-![Unity_qCbJSgOqHo](https://github.com/user-attachments/assets/b0cfcbcc-decc-4e75-a5ff-39d20e1fe4ba)
+1. Add a new your own value to the enum **ScreenIdentifier**. (In my example **Settings**)
+<img width="430" height="155" alt="{051DBF5C-FB01-407A-AE30-74CDEA1713AA}" src="https://github.com/user-attachments/assets/685c72c5-94ae-4c00-995e-9a19fe0179d2" />
 
-4. To open a screen, use:
+2. Create prefabs for your new screen and its view.
+<img width="995" height="145" alt="{A1F1D3DB-6198-42F4-82CB-ADE78953E08E}" src="https://github.com/user-attachments/assets/2119dab7-20a7-4c34-8e5e-6446655b41b9" />
+<img width="523" height="41" alt="{8D920F17-B1D2-4AEC-AF2E-C2B76EF1D026}" src="https://github.com/user-attachments/assets/ef9aedd0-031d-4a03-9eaa-ebcc8b7c7b56" />
+
+3. Assign the main view prefab to the screen’s `defaultView` field (additional views can be handled with your own logic).  
+![Unity_ZHZMyUoejQ](https://github.com/user-attachments/assets/48a09559-92a2-4b2f-ab86-ddb00a781f1f)
+
+4. Add the screen prefab to the `ScreensPrefabs` list in **`ScreenAndOverlayConfig`**.
+  
+5. To open a screen, use:
 ```csharp
 SV.Get<ScreenService>().OpenScreen(ScreenIdentifier.YourScreenID);
 ```
 Or use an **OpenScreenButton** and select the desired `ScreenIdentifier` in the inspector.
-<img width="1010" height="237" alt="{171D8A23-1F2B-4BBE-9AB0-04FF25F9FED8}" src="https://github.com/user-attachments/assets/3d87232a-97a7-46d8-891d-6b9788482cb4" />
+<img width="977" height="253" alt="{086ED0C3-1CDE-48F0-B81B-C3A74CCE787A}" src="https://github.com/user-attachments/assets/3b3de08c-680f-4083-866f-fde9c6461614" />
 
+---
+### Use an **OpenPreviousScreenButton** to open previous screen.
+<img width="957" height="86" alt="{78423E98-4B48-4089-B859-C39C78ABAADE}" src="https://github.com/user-attachments/assets/087254d8-6bdd-461a-9053-87ad4f6c4195" />
 
-Also you can use an **OpenPreviousScreenButton** to open previous screen.
-<img width="1049" height="302" alt="{5582D812-39E4-4B7E-BFCA-5BE71A123B7C}" src="https://github.com/user-attachments/assets/a03df106-f24d-4b1f-a0df-825f7bfc97a3" />
-
-
-
+---
 ### 📦 **Overlays**
 You can create your own overlays, but do not delele **LoadingOverlay** class and prefab. This overlay is essential for displaying loading between screen transitions. The only things you can change there are the view and the duration of the animation of this loading overlay
 1. Create an overlay prefab and add it to the `OverlaysPrefabs` list in `ScreenAndOverlayConfig`.

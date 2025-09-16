@@ -26,8 +26,8 @@ This system solves those issues by:
 ### Key Classes
 
 - 🖥️ **Screen** — main container for views within this screen. It manages which view is active and handles switching between them.
-- 🖼️ **BaseView** — a visual part of a screen. A single Screen can have multiple different views, but only one can be active at a time. If you need to switch between views, implement this logic in your Screen subclass: hide or destroy the current view, create the new one, and assign it to `_currentView`.  
-- 📦 **BaseOverlay** — pop-ups or notifications managed by OverlayService. They preserve their state when switching screens and can open independently of the current screen.
+- 🖼️ **View** — a visual part of a screen. A single Screen can have multiple different views, but only one can be active at a time. If you need to switch between views, implement this logic in your Screen subclass: hide or destroy the current view, create the new one, and assign it to `_currentView`.  
+- 📦 **Overlay** — pop-ups or notifications managed by OverlayService. They preserve their state when switching screens and can open independently of the current screen.
 
 The system allows you to:
 

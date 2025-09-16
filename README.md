@@ -1,23 +1,41 @@
-# 🚀 **Why It’s Useful**
 
-This system simplifies working with UI in Unity. It has **two key services**:
+
+
+
+# 🚀 **Why It’s Useful**
+In Unity, the default way of building UI is to place elements on a Canvas and show or hide them with `SetActive()`.  
+This works for small projects, but as complexity grows it becomes messy and hard to maintain:
+
+- 🧩 **Hard to manage screens** — you must manually show and hide objects in the right order.  
+- ⏪ **No screen history** — you have to write your own logic to go back.  
+- 🔀 **Complex states are tricky** — e.g., one screen with multiple views (UI when driving vs. walking).  
+- 📚 **Overlays can overlap** or behave inconsistently without extra management.  
+
+This system solves those issues by:
+
+✅ **Splitting UI into Screens and Overlays** for better structure and control.  
+✅ **Keeping screen history** so navigation back is simple and automatic.  
+✅ **Preserving overlay states** when switching screens, hiding and restoring them automatically.  
+✅ **Managing an overlay queue** so pop-ups don’t block or overwrite each other.  
+✅ **Centralizing UI logic** inside dedicated services, making the project easier to maintain and scale.  
+### This system simplifies working with UI in Unity and provides two core services:
 
 ✨ **ScreenService** — manages creating and switching screens.  
-🖼️ **OverlayService** — manages creating and showing overlays (pop-ups, notifications) on top of screens.
+🖼️ **OverlayService** — manages creating and showing overlays (pop-ups, notifications) on top of screens.  
+
+### Key Classes
+
+- 🖥️ **Screen** — main container for a screen’s interface, managed by `ScreenService`.  
+- 🖼️ **BaseView** — a visual part of a screen. A single Screen can have multiple different views, but only one can be active at a time. If you need to switch between views, implement this logic in your Screen subclass: hide or destroy the current view, create the new one, and assign it to `_currentView`.  
+- 📦 **BaseOverlay** — pop-ups or notifications, managed by `OverlayService`, keep their state when switching screens and can open independently.
 
 The system allows you to:
 
-📜 **Maintain screen history**.  
-🛠️ **Flexibly structure screens and views**, allowing for complex interfaces (e.g., different UI for different player states).  
-⚡ **Open and close screens and overlays asynchronously**.  
-🎛️ **Manage overlay queues** so that one overlay doesn’t block another.  
-💾 **Preserve overlay states** when switching screens, automatically hiding and restoring them.
-
-### **Key Classes**
-
-🖥️ **Screen** — the main container for a screen’s interface, managed by `ScreenService`.  
-🖼️ **BaseView** — individual visual parts of a screen; multiple views can exist on one `Screen` for different states.  
-📦 **BaseOverlay** — pop-up windows or notifications, managed by `OverlayService`, preserve their state when switching screens, and can open independently of the current screens.
+📜 **Maintain screen history**  
+🛠️ **Structure screens and views flexibly**, enabling complex interfaces (e.g., different UI for different player states)  
+⚡ **Open and close screens and overlays asynchronously**  
+🎛️ **Control overlay queues**, so one overlay doesn’t block another  
+💾 **Preserve overlay states** when switching screens, automatically hiding and restoring them  
 
 ---
 

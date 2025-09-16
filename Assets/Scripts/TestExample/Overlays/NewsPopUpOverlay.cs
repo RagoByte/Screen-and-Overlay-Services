@@ -16,18 +16,13 @@ namespace TestExample.Overlays
         {
             newsText.text = "2228 year. Unity 7 is coming soon! Stay tuned for more updates.";
 
-            closeButton.ActionOnClicked += Close;
+            closeButton.ActionOnClicked += () => ((IOpenable)this).Close();
             return UniTask.CompletedTask;
         }
 
         protected override UniTask OnClose()
         {
             return UniTask.CompletedTask;
-        }
-
-        private void Close()
-        {
-            ((IOpenable)this).Close();
         }
     }
 }

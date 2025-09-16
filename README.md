@@ -42,7 +42,7 @@ The system allows you to:
 # ⚡ **Initializing the Services**
 
 This project uses a **Service Locator (`SV`)** to register and access services.  
-`ScreenService` and `OverlayService` are created from prefabs stored in `ScreenAndOverlayConfig`, registered in the service locator, and can then be accessed anywhere in the project via `SV.Get<T>()`.
+`ScreenService` and `OverlayService` are created from prefabs stored in my Config class, then registered in the service locator, and can then be accessed anywhere in the project via `SV.Get<T>()`.
 <img width="930" height="638" alt="{E72FF53C-8D9D-4B1A-B2FE-3A95791ADCE6}" src="https://github.com/user-attachments/assets/4a726d40-caa3-43fd-9105-225eff3a98e9" />
 
 💡 **Note:** Instead of a Service Locator, you can use any other dependency management method, such as **Dependency Injection**, if it fits your project better.
@@ -52,24 +52,30 @@ This project uses a **Service Locator (`SV`)** to register and access services.
 # 🖱️ **Creating Screens and Overlays**
 
 ### 🖥️ **Screens and Views**
+---
 
-1. Add a new your own value to the enum **ScreenIdentifier**. (In my example **Settings**)
+### 1. Add a new your own value to the enum **ScreenIdentifier**. (In my example **Settings**):
 <img width="430" height="155" alt="{051DBF5C-FB01-407A-AE30-74CDEA1713AA}" src="https://github.com/user-attachments/assets/685c72c5-94ae-4c00-995e-9a19fe0179d2" />
 
-2. Create prefabs for your new screen and its view.
+
+### 2. Create prefabs for your new screen and its view:
 <img width="995" height="145" alt="{A1F1D3DB-6198-42F4-82CB-ADE78953E08E}" src="https://github.com/user-attachments/assets/2119dab7-20a7-4c34-8e5e-6446655b41b9" />
 <img width="523" height="41" alt="{8D920F17-B1D2-4AEC-AF2E-C2B76EF1D026}" src="https://github.com/user-attachments/assets/ef9aedd0-031d-4a03-9eaa-ebcc8b7c7b56" />
 
-3. Assign the main view prefab to the screen’s `defaultView` field (additional views can be handled with your own logic).  
+
+### 3. Assign the main view prefab to the screen’s `defaultView` field (additional views can be handled with your own logic):
 ![Unity_ZHZMyUoejQ](https://github.com/user-attachments/assets/48a09559-92a2-4b2f-ab86-ddb00a781f1f)
 
-4. Add the screen prefab to the `ScreensPrefabs` list in **`ScreenAndOverlayConfig`**.
+
+### 4. Add the screen prefab to the `screensPrefabs` list in **`ScreenService` prefab**:
+<img width="990" height="283" alt="{B933F547-3679-4344-893E-3AFF6A65D824}" src="https://github.com/user-attachments/assets/21a982d7-b411-4e63-ad07-ba35973a099a" />
+
   
-5. To open a screen, use:
+### 5. To open a screen, use:
 ```csharp
 SV.Get<ScreenService>().OpenScreen(ScreenIdentifier.YourScreenID);
 ```
-Or use an **OpenScreenButton** and select the desired `ScreenIdentifier` in the inspector.
+### Or use an `OpenScreenButton` and select the desired `ScreenIdentifier` in the inspector.
 <img width="977" height="253" alt="{086ED0C3-1CDE-48F0-B81B-C3A74CCE787A}" src="https://github.com/user-attachments/assets/3b3de08c-680f-4083-866f-fde9c6461614" />
 
 ---
@@ -78,8 +84,10 @@ Or use an **OpenScreenButton** and select the desired `ScreenIdentifier` in the 
 
 ---
 ### 📦 **Overlays**
-You can create your own overlays, but do not delele **LoadingOverlay** class and prefab. This overlay is essential for displaying loading between screen transitions. The only things you can change there are the view and the duration of the animation of this loading overlay
-1. Create an overlay prefab and add it to the `OverlaysPrefabs` list in `ScreenAndOverlayConfig`.
+You can create your own overlays, `but do not delete` **LoadingOverlay** `class and prefab`. This overlay is essential for displaying loading between screen transitions. The only things you can change there are the view and the duration of the animation of this loading overlay
+1. Create an overlay prefab and add it to the `overlaysPrefabs` list in **`OverlayService` prefab**:
+<img width="971" height="431" alt="{DA24887E-C06D-441E-AF38-A40F36DA329B}" src="https://github.com/user-attachments/assets/5443939e-4b56-4d1d-b4f0-545b982c84f2" />
+
 2. To open an overlay, use:
 
 ```csharp
